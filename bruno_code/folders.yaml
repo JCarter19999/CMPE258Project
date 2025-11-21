@@ -1,0 +1,50 @@
+# hyperparameters taht get loaded into the model. Reduces code bloat.
+
+
+DATA:
+  TELEMETRY_DIR: data/raw/ESA-Mission1/channels
+  TELECOMMANDS_DIR: data/raw/ESA-Mission1/telecommands
+  LABELS_CSV: data/raw/ESA-Mission1/labels.csv
+  ANOMALY_TYPES_CSV: data/raw/ESA-Mission1/anomaly_types.csv
+  CHANNELS_META_CSV: data/raw/ESA-Mission1/channels.csv
+  RESAMPLE_RULE: "10s"         
+  MERGE_TOL_SEC: 10             
+  TELECOMMANDS_TOPK: 50        
+  TELECOMMANDS_WINDOW_SEC: 10
+  LOG_EVERY: 10        
+  MAX_WINDOWS: 200000         
+  TIMESTAMP_CANDIDATES:
+  - timestamp
+  - Timestamp
+  - time
+  - Time
+  - DATE
+  - date
+  USE_EVENTS:
+  - Anomaly
+  TARGET_ONLY: true
+  TRAIN_SPLIT: 0.6
+  VAL_SPLIT: 0.2
+  TEST_SPLIT: 0.2
+  WINDOW: 128
+  STRIDE: 4
+MODEL:
+  NAME: transformer_ae
+  D_MODEL: 128
+  NHEAD: 4
+  NUM_LAYERS: 2
+  DIM_FF: 512 
+  DROPOUT: 0.1
+TRAIN:
+  BATCH_SIZE: 256
+  LR: 0.001
+  EPOCHS: 10
+  LOSS: bce
+  CLASS_WEIGHT: 4.0
+  DEVICE: cuda
+EVAL:
+  THRESHOLD_PERCENTILE: 99.5
+BALANCE:
+  ENABLE: true
+  METHOD: smote
+  TARGET: latent
