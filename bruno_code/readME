@@ -1,0 +1,19 @@
+Project Readme
+
+This project uses a simple transformer autoencoder for time series anomaly detection and an optional SMOTE plus Random Forest classifier in latent space. The model structure and ideas follow common open repos, and this implementation is written by the authors.
+
+AI-generated code disclaimer: AI generated code was used only for readability and boilerplate. System design, analysis, and experimental decisions were done entirely by the authors.
+
+Reference Repos
+
+https://github.com/AndreSoble/TransformerAutoencoder
+
+https://github.com/thuml/Anomaly-Transformer
+
+https://github.com/spencerbraun/anomaly_transformer_pytorch
+
+https://github.com/wzlxjtu/PositionalEncoding2D
+
+https://github.com/LMissher/TFMAE
+
+https://github.com/davizuku/aws-certified-ml-2025
